@@ -28,7 +28,6 @@ Sample Output
 
 19:05:45
 */
-
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
@@ -41,10 +40,17 @@ int main() {
     char ampm[2];
     scanf("%d:%d:%d%s",&hh,&mm,&ss,ampm);
     if(strcmp (ampm,"AM") == 0){
+        if(hh == 12){
+            hh =0;
+        }
         printf("%02d:%02d:%02d",hh,mm,ss);
+        
     }
     else if(strcmp (ampm,"PM") == 0){
-        hh+= 12;
+        if(hh<12){
+            hh+= 12;
+        }
+        
         printf("%02d:%02d:%02d",hh,mm,ss);
     }
     return 0;
